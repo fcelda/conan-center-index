@@ -1,0 +1,4 @@
+sources:
+  "1.5.2":
+    url: "https://github.com/maxmind/libmaxminddb/releases/download/1.5.2/libmaxminddb-1.5.2.tar.gz"
+    sha256: "5237076d250a5f7c297e331c35a433eeaaf0dc205e070e4db353c9ba10f340a2"
