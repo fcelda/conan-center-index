@@ -1,5 +1,4 @@
 import os
-import os.path
 import shutil
 from conans import ConanFile, CMake, tools
 
@@ -19,11 +18,11 @@ class libmaxminddbConan(ConanFile):
 
     @property
     def _source_subfolder(self):
-        return "src"
+        return "source_subfolder"
 
     @property
     def _build_subfolder(self):
-        return "build"
+        return "build_subfolder"
 
     def config_options(self):
         if self.settings.os == "Windows":

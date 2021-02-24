@@ -14,4 +14,4 @@ class libmaxminddbTestConan(ConanFile):
 
     def test(self):
         if not tools.cross_building(self):
-            self.run(os.path.join(".", "example"))
+            self.run(os.path.join(".", "example"), run_environment=True)
