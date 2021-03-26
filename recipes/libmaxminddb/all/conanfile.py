@@ -59,7 +59,15 @@ class libmaxminddbConan(ConanFile):
         self.copy(pattern="LICENSE", dst="licenses", src=self._source_subfolder)
 
     def package_info(self):
-        self.cpp_info.libs = ["maxminddb"]
+        libname = "libmaxminddb" if self.settings.os == "Windows" else "maxminddb"
+        self.cpp_info.libs = [libname]
+        self.cpp_info.names["cmake_find_package"] = "maxminddb"
+        self.cpp_info.filenames["cmake_find_package"] = "maxminddb"
+        self.cpp_info.names["cmake_find_package_multi"] = "maxminddb"
+        self.cpp_info.filenames["cmake_find_package_multi"] = "maxminddb"
+
+        if self.settings.os == "Windows":
+            self.cpp_info.system_libs = ["ws2_32"]
 
         bin_path = os.path.join(self.package_folder, "bin")
         self.output.info("Appending PATH environment variable: {}".format(bin_path))
